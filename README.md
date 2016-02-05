@@ -13,9 +13,9 @@ This game was developed using Codeigniter and JavaScript.
 
 #Team Members
 ---
-- Jason Jagodics
+- Jayson Jagodics
 - Tyler Massicotte
-- Matt Wong
+- Matthew Wong
 - Spencer Pollock
 
 Group 3
