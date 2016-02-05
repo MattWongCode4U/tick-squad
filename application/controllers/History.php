@@ -18,8 +18,10 @@ class History extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('pages/history');
+	public function index(){
+            $data['title'] = ucfirst('history'); // Capitalize the first letter
+            $this->load->view('templates/header', $data);
+            $this->load->view('pages/history');
+            $this->load->view('templates/footer', $data);
 	}
 }
