@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Player extends CI_Controller {
+class Player extends Application {
 
 	/**
 	 * Index Page for this controller.
@@ -19,9 +19,9 @@ class Player extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-            $data['title'] = ucfirst('player'); // Capitalize the first letter
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/player');
-            $this->load->view('templates/footer', $data);
+            $this->data['pagetitle'] = ucfirst('player'); // Capitalize the first letter
+            $this->data['page'] = 'pages/player';
+            $this->data['content'] = '';
+            $this->render();
 	}
 }
