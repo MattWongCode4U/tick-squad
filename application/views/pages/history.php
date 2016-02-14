@@ -1,5 +1,5 @@
 <div id="header-featured">
-    <h2>History:</h2>
+    <center>
     <form method="POST" name="stock-form">
     <select id="stock-select" name="DropDownBox">
         <option value="BOND">Bond</option>
@@ -17,18 +17,7 @@
                 <th>Amount of Stocks</th>
                 <th>Date/Time</th>
             </tr>
-            {transactions}
-            <tr>
-                <td>{Trans}</td>
-                <td>{Quantity}</td>
-                <td>{DateTime}</td>
-            </tr>
-            {/transactions}
+            {content}
         </table>
-    <div id="banner-wrapper">
-        <div id="banner" class="container">
-            <h2><? echo $title; ?></h2>
-			
-        </div>
-    </div>
+    </center>
 </div>
