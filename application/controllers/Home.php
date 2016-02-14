@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends Application {
 
 	/**
 	 * Index Page for this controller.
@@ -19,11 +19,10 @@ class Home extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()	{
-            $data['title'] = ucfirst('home'); // Capitalize the first letter
-	    $this->data['players-panel'] = $this->players_panel();
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/home');
-            $this->load->view('templates/footer', $data);
+            $this->data['pagetitle'] = ucfirst('home'); // Capitalize the first letter
+            $this->data['page'] = 'pages/home';
+            $this->data['content'] = '';
+            $this->render();
 	}
 	
 	public function players_panel() {
