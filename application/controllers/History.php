@@ -4,17 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class History extends Application {
 
     public function index() {
-        $data['title'] = ucfirst('history'); // Capitalize the first letter
+        $this->data['pagetitle'] = ucfirst('history'); // Capitalize the first letter
 
         //default value of dropdown selection
         $value = 'BOND';
         if (isset($_POST['BTN'])) {
             $value = $_POST['DropDownBox'];
         }
-
-        //debugging value of the current dropdown selection
-        echo $value;
-
         //get value from dropdown
         $currentStock = $value;
 

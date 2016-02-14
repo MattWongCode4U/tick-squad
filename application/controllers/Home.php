@@ -19,8 +19,9 @@ class Home extends Application {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index()	{
-            $data['title'] = ucfirst('home'); // Capitalize the first letter
-            //$this->render();
-            $this->load->view('template', $data);
+            $this->data['pagetitle'] = ucfirst('home'); // Capitalize the first letter
+            $this->data['page'] = 'pages/home';
+            $this->data['content'] = '';
+            $this->render();
 	}
 }

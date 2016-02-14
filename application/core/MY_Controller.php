@@ -21,10 +21,7 @@ class Application extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-        //$this->data = array();
-        //$this->data['title'] = '?';
-        //$this->errors = array();
-        //$this->data['pageTitle'] = '??';
+	        
     }
 
     /**
@@ -32,6 +29,7 @@ class Application extends CI_Controller {
      * Used on all. We need to load data into content in the controller
      */
     function render() {
+        $this->data['pagetitle'] = $this->data['pagetitle'];
         $this->data['pagecontent'] = $this->parser->parse($this->data['page'], $this->data, true);
         $this->parser->parse('template', $this->data);
     }
