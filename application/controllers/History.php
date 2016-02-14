@@ -38,7 +38,7 @@ class History extends CI_Controller {
             
             //get from the transactions table, 
             //all info that have Stock = thing from dropdown
-            $trans = $this->transactions_model->details('Stock', $currentStock);
+            $trans = $this->transactions_model->details($currentStock);
             
             $transactions = array();
             foreach($trans as $info){
