@@ -20,8 +20,22 @@ class Home extends CI_Controller {
 	 */
 	public function index()	{
             $data['title'] = ucfirst('home'); // Capitalize the first letter
+	    $this->data['players-panel'] = $this->players_panel();
             $this->load->view('templates/header', $data);
             $this->load->view('pages/home');
             $this->load->view('templates/footer', $data);
+	}
+	
+	public function players_panel() {
+	    $result = '';
+	    $players = $this->Players_Model->get_players();
+
+	    foreach ($players->result() as $row) {
+		$result .= $this->parser->parse('home/player_row', (array) $row, true);
+	    }
+
+    	    $data['rows'] = $result;
+
+	    return $this->parser->parse('home/players_table', $data, true);
 	}
 }
