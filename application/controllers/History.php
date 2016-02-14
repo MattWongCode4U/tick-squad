@@ -24,21 +24,17 @@ class History extends CI_Controller {
             $this->load->view('pages/history');
             $this->load->view('templates/footer', $data);
             
-            $dom = new DOMDocument();
-            $dom->LoadHTML("pages/history.php");
-            
-            $select = $dom->getElementById('stock-select');
-            $stocks = '<option value="BOND">Bond</option>'.
-                        '<option value="GOLD">Gold</option>'.
-                        '<option value="GRAN">Grain</option>'.
-                        '<option value="IND">Industrial</option>'.
-                        '<option vlaue="OIL">Oil</option>'.
-                        '<option value="TECH">Tech</option>';
-            
-            $select->innertext = $stocks;
+            //default value of dropdown selection
+            $value = 'BOND';
+            if(isset($_POST['BTN'])){
+                $value = $_POST['DropDownBox'];
+            }
+
+            //debugging value of the current dropdown selection
+            echo $value;
             
             //get value from dropdown
-            $currentStock = ;
+            $currentStock = $value;
             
             //get from the transactions table, 
             //all info that have Stock = thing from dropdown
