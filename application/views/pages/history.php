@@ -1,5 +1,7 @@
 <div id="header-featured">
     <h2>History:</h2>
+    <select id="stock-select">
+    </select>
         <table class="table">
             <tr>
                 <th>Buy/Sell</th>

@@ -24,7 +24,25 @@ class History extends CI_Controller {
             $this->load->view('pages/history');
             $this->load->view('templates/footer', $data);
             
-            $trans = $this->transactions->some('', '');
+            $dom = new DOMDocument();
+            $dom->LoadHTML("pages/history.php");
+            
+            $select = $dom->getElementById('stock-select');
+            $stocks = '<option value="BOND">Bond</option>'.
+                        '<option value="GOLD">Gold</option>'.
+                        '<option value="GRAN">Grain</option>'.
+                        '<option value="IND">Industrial</option>'.
+                        '<option vlaue="OIL">Oil</option>'.
+                        '<option value="TECH">Tech</option>';
+            
+            $select->innertext = $stocks;
+            
+            //get value from dropdown
+            $currentStock = ;
+            
+            //get from the transactions table, 
+            //all info that have Stock = thing from dropdown
+            $trans = $this->transactions->some('Stock', $currentStock);
             
             $transactions = array();
             foreach($trans as $info){
