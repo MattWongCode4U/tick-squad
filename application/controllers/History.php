@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class History extends CI_Controller {
+class History extends Application {
 
     public function index() {
         $data['title'] = ucfirst('history'); // Capitalize the first letter
         $this->load->view('templates/header', $data);
-        $this->load->view('pages/history');
+        $this->load->view('pages/history', $data);
         $this->load->view('templates/footer', $data);
 
         //default value of dropdown selection
@@ -26,18 +26,24 @@ class History extends CI_Controller {
         $trans = $this->transactions->details($currentStock);
 
         $transactions = array();
+        $tblData = '';
         foreach ($trans as $info) {
-            $this1 = array(
-                'DateTime' => $info->DateTime,
-                'Player' => $info->Player,
-                'Stock' => $info->Stock,
-                'Trans' => $info->Trans,
-                'Quantity' => $info->Quantity
-            );
-            $transactions[] = $this1;
+            $date = $info->DateTime;
+            $player = $info->Player;
+            $stock = $info->Stock;
+            $trans = $info->Trans;
+            $quantity = $info->Quantity;
+            
+            $tblData += '<tr>';
+            $tblData += '<td>'.$trans.'</td>';
+            $tblData += '<td>'.$quantity.'</td>';
+            $tblData += '<td>'.$date.'</td>';
+            $tblData += '</tr>';
         }
 
-        $this->data['transactions'] = $transactions;
+        $this->data['transactions'] = $tblData;
+        
+        $this->render();
 
     }
 }

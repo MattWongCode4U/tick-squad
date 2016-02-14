@@ -18,12 +18,6 @@
                 <th>Date/Time</th>
             </tr>
             {transactions}
-            <tr>
-                <td>{Trans}</td>
-                <td>{Quantity}</td>
-                <td>{DateTime}</td>
-            </tr>
-            {/transactions}
         </table>
     <div id="banner-wrapper">
         <div id="banner" class="container">
