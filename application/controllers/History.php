@@ -23,5 +23,23 @@ class History extends CI_Controller {
             $this->load->view('templates/header', $data);
             $this->load->view('pages/history');
             $this->load->view('templates/footer', $data);
+            
+            $trans = $this->transactions->some('', '');
+            
+            $transactions = array();
+            foreach($trans as $info){
+                $this1 = array(
+                    'DateTime' => $info->DateTime,
+                    'Player' => $info->Player,
+                    'Stock' => $info->Stock,
+                    'Trans' => $info->Trans,
+                    'Quantity' => $info->Quantity
+                );
+                $transactions[] = $this1;
+            }
+            
+            $this->data['transactions'] = $transactions;
+            
+            $this->render();
 	}
 }

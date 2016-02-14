@@ -2,21 +2,17 @@
     <h2>History:</h2>
         <table class="table">
             <tr>
-                <th>Purchase/Sell</th>
-                <th>Price per Stock</th>
+                <th>Buy/Sell</th>
                 <th>Amount of Stocks</th>
-                <th>Total Price</th>
                 <th>Date/Time</th>
             </tr>
-            {}
+            {transactions}
             <tr>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
+                <td>{Trans}</td>
+                <td>{Quantity}</td>
+                <td>{DateTime}</td>
             </tr>
-            {}
+            {/transactions}
         </table>
     <div id="banner-wrapper">
         <div id="banner" class="container">
