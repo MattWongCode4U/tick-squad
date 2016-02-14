@@ -20,8 +20,6 @@ class Player extends CI_Controller {
 	 */
 	public function index(){
             $data['title'] = ucfirst('player'); // Capitalize the first letter
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/player');
-            $this->load->view('templates/footer', $data);
+            $this->load->view('template', $data);
 	}
 }

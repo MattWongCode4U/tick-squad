@@ -5,9 +5,6 @@ class History extends Application {
 
     public function index() {
         $data['title'] = ucfirst('history'); // Capitalize the first letter
-        $this->load->view('templates/header', $data);
-        $this->load->view('pages/history', $data);
-        $this->load->view('templates/footer', $data);
 
         //default value of dropdown selection
         $value = 'BOND';
@@ -34,17 +31,17 @@ class History extends Application {
             $trans = $info->Trans;
             $quantity = $info->Quantity;
             
-            $tblData += '<tr>';
-            $tblData += '<td>'.$trans.'</td>';
-            $tblData += '<td>'.$quantity.'</td>';
-            $tblData += '<td>'.$date.'</td>';
-            $tblData += '</tr>';
+            $tblData .= '<tr>';
+            $tblData .= '<td>'.$trans.'</td>';
+            $tblData .= '<td>'.$quantity.'</td>';
+            $tblData .= '<td>'.$date.'</td>';
+            $tblData .= '</tr>';
         }
-
-        $this->data['transactions'] = $tblData;
+        // load the page content into data['content']
+        $this->data['page'] = 'pages/history';
+        $this->data['content'] = $tblData;
         
         $this->render();
-
     }
 }
 

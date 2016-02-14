@@ -29,17 +29,10 @@ class Application extends CI_Controller {
 
     /**
      * Render this page
+     * Used on all. We need to load data into content in the controller
      */
     function render() {
-        //$this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
-        //$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
-
-        $this->data['transactions'] = $this->parser->parse('history', 
-                $this->data, true);
-        
-        // finally, build the browser page!
-        $this->data['data'] = &$this->data;
-        //$this->parser->parse('_template', $this->data);
+        $this->data['pagecontent'] = $this->parser->parse($this->data['page'], $this->data, true);
+        $this->parser->parse('template', $this->data);
     }
-
 }
