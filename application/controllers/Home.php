@@ -20,8 +20,8 @@ class Home extends Application {
 	 */
 	public function index()	{
             $this->data['pagetitle'] = ucfirst('home'); // Capitalize the first letter
-            $this->data['page'] = 'pages/home';
-            $this->data['content'] = '';
+            $this->data['page'] = 'pages/home/home';
+            $this->data['content'] = 'pages/home';
             $this->render();
 	}
 	
