@@ -20,14 +20,15 @@ class Home extends Application {
 	 */
 	public function index()	{
             $this->data['pagetitle'] = ucfirst('home'); // Capitalize the first letter
+	    $this->data['players-panel'] = $this->players_panel();
             $this->data['page'] = 'pages/home';
-            $this->data['content'] = '';
+            $this->data['content'] = 'pages/home/';
             $this->render();
 	}
 	
 	public function players_panel() {
 	    $result = '';
-	    $players = $this->Players_Model->get_players();
+	    $players = $this->players->get_players();
 
 	    foreach ($players->result() as $row) {
 		$result .= $this->parser->parse('home/player_row', (array) $row, true);
