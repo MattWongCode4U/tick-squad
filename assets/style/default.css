@@ -12,7 +12,7 @@ body
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 11pt;
 	font-weight: 300;
-	color: #6c6c6c
+	color: #ffffff
 }
 
 h1, h2, h3
@@ -20,7 +20,7 @@ h1, h2, h3
 	margin: 0;
 	padding: 0;
 	font-weight: 600;
-	color: #454445;
+	color: #ff9900;
 }
 
 p, ol, ul
@@ -45,7 +45,7 @@ strong
 
 a
 {
-	color: #2C383B;
+	color: #ff6600;
 }
 
 a:hover
