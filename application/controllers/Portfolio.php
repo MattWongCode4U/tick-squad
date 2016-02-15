@@ -46,7 +46,7 @@ class Portfolio extends Application {
 	$this->data['pagetitle'] = $user;
 	$this->data['player-activity'] = $this->trade_activity($user);
 	$this->data['pagecontent'] = 'pages/portfolio/portfolio';
-	$this->data['pages'] = 'pages/portfolio/portfolio';
+	$this->data['page'] = 'pages/portfolio/portfolio';
 	$this->render();
     }
 
@@ -57,7 +57,7 @@ class Portfolio extends Application {
 	foreach ($query->result() as $row) {
 	    $result .= $this->parser->parse('pages/portfolio/trading_row', (array) $row, true);
         }
-	return $this->parser->parse('pages/portfolio/trading_table', (array('rows' => $result)), true);
+	return $this->parser->parse('pages/portfolio/trading_table', array('rows' => $result), true);
     }
 
 }
