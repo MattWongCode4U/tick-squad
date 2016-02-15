@@ -1,0 +1,3 @@
+<center>
+{player-activity}
+</center>
