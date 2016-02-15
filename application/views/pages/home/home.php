@@ -1,0 +1,2 @@
+{players-panel}
+{stocks-panel}
