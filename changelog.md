@@ -5,6 +5,7 @@ Newest at the top
 Change Log format
 	YYYY-MM-DD HH:mm {Comments}
 
+2016-02-14 20:03 Portfolio added
 2016-02-14 17:12 Added players and stocks to dashboard
 2016-02-14 14:09 Pages updated. BOND debug removed.
 2016-02-14 13:41 Working my_controller. Working history page. Refactored history page. 
