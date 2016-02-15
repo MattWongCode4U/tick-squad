@@ -5,6 +5,7 @@ Newest at the top
 Change Log format
 	YYYY-MM-DD HH:mm {Comments}
 
+2016-02-14 21:39 Centered login inputs
 2016-02-14 21:35 Fixed login button spacing
 2016-02-14 21:26 Updated style and font colour
 2016-02-14 21:05 fixed player redirect
