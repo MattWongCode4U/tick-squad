@@ -32,7 +32,7 @@ Released   : 20131220
                 <div id="menu">
                     <ul>
                         <li><a href="/" accesskey="1" title="">Dashboard</a></li>
-                        <li><a href="/player" accesskey="2" title="">Player</a></li>
+                        <li><a href="/portfolio" accesskey="2" title="">Player</a></li>
                         <li><a href="/history" accesskey="3" title="">History</a></li>
 			<li>{login-menu}</li>
                     </ul>

@@ -1,6 +1,6 @@
 <div id="header-featured">
     <center>
-    <form method="POST" name="stock-form">
+    <form method="POST" name="stock-form" action="/history">
     <select id="stock-select" name="DropDownBox">
         <option value="BOND">Bond</option>
         <option value="GOLD">Gold</option>
