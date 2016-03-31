@@ -2,6 +2,9 @@
 ---
 ###List of things that need to be done
 - Fix user authentication
+    - Restrict repeat usernames
+    - Handle invalid logins
+    - Set user id's to lowercase
 - Setup state's for the game
 - Figure out DTD for the xml returned from the server
     - Are we supposed to be using jlparry server?
