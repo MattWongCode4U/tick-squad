@@ -16,7 +16,7 @@ class Home extends Application {
             $this->data['players-panel'] = $this->players_panel();
             $this->data['stocks-panel'] = $this->stocks_panel();
             $this->data['page'] = 'pages/home/home';
-            $this->data['content'] = 'pages/home/home';
+            //$this->data['content'] = 'pages/home/home';
             $this->render();
 	}
 	

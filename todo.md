@@ -26,3 +26,6 @@
     - otherwise just assign avatars upon creation of the account
     - handle file uploading
     - scale the files down to 64x64
+
+- Player link should show a player list
+    - shows what each player owns
