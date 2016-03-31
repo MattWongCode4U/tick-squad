@@ -30,12 +30,15 @@ Released   : 20131220
                     <h1><span class="fa fa-bug"></span><a href="/">Classic Ticker</a></h1>
                 </div>
                 <div id="menu">
+                    {menubar}
+<!--
                     <ul>
                         <li><a href="/" accesskey="1" title="">Dashboard</a></li>
                         <li><a href="/portfolio" accesskey="2" title="">Player</a></li>
                         <li><a href="/history" accesskey="3" title="">History</a></li>
 			<li>{login-menu}</li>
                     </ul>
+-->
                 </div>
             </div>
         </div>

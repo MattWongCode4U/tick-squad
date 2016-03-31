@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 03, 2016 at 06:51 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Host: localhost:3306
+-- Generation Time: Mar 31, 2016 at 04:46 PM
+-- Server version: 5.6.28
+-- PHP Version: 5.5.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,8 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `movements`
 --
 
-DROP TABLE IF EXISTS `movements`;
-CREATE TABLE IF NOT EXISTS `movements` (
+CREATE TABLE `movements` (
   `Datetime` varchar(19) DEFAULT NULL,
   `Code` varchar(4) DEFAULT NULL,
   `Action` varchar(4) DEFAULT NULL,
@@ -75,8 +74,7 @@ INSERT INTO `movements` (`Datetime`, `Code`, `Action`, `Amount`) VALUES
 -- Table structure for table `players`
 --
 
-DROP TABLE IF EXISTS `players`;
-CREATE TABLE IF NOT EXISTS `players` (
+CREATE TABLE `players` (
   `Player` varchar(6) DEFAULT NULL,
   `Cash` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -97,8 +95,7 @@ INSERT INTO `players` (`Player`, `Cash`) VALUES
 -- Table structure for table `stocks`
 --
 
-DROP TABLE IF EXISTS `stocks`;
-CREATE TABLE IF NOT EXISTS `stocks` (
+CREATE TABLE `stocks` (
   `Code` varchar(4) DEFAULT NULL,
   `Name` varchar(10) DEFAULT NULL,
   `Category` varchar(1) DEFAULT NULL,
@@ -123,8 +120,7 @@ INSERT INTO `stocks` (`Code`, `Name`, `Category`, `Value`) VALUES
 -- Table structure for table `transactions`
 --
 
-DROP TABLE IF EXISTS `transactions`;
-CREATE TABLE IF NOT EXISTS `transactions` (
+CREATE TABLE `transactions` (
   `DateTime` varchar(19) DEFAULT NULL,
   `Player` varchar(6) DEFAULT NULL,
   `Stock` varchar(4) DEFAULT NULL,
@@ -150,6 +146,39 @@ INSERT INTO `transactions` (`DateTime`, `Player`, `Stock`, `Trans`, `Quantity`) 
 ('2016.02.01-09:01:50', 'Donald', 'TECH', 'sell', 100),
 ('2016.02.01-09:01:55', 'George', 'OIL', 'buy', 100),
 ('2016.02.01-09:01:60', 'George', 'IND', 'buy', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `name` varchar(30) NOT NULL,
+  `id` varchar(30) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `role` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`name`, `id`, `password`, `role`) VALUES
+('Jay', 'jay', '$2y$10$COyb8GZ6cZ0BoKMJUWaxweBYC9xBIjcBM5tSyag6iIZyEYETf.kri', 'admin'),
+('Matt', 'matt', '$2y$10$2DY1Dn.EhKcabt.TgmsQoerHp6NM7LK6jlJ3ljSTDv.CNVHzRS91C', 'admin'),
+('Spencer', 'spencer', '$2y$10$mk8UpRX8LEMtRXVWYcBLa.uQaZYJ//VlmgPUs42KXVqRld4TOSP8W', 'admin'),
+('Tyler', 'tyler', '$2y$10$NTW7XCRzOoNrISbhJERxGedwryXHVLGE8TyT2baQSEMM3bYa0zYwu', 'admin');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

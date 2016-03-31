@@ -15,7 +15,7 @@ class Portfolio extends Application {
         Checks if there is someone logged in, else prompts the user to login
 	*/
     public function index() {
-        if ($this->session->userdata('username')) {
+        if ($this->session->userdata('userName')) {
             $this->profile();
         } else {
             $this->login();
@@ -34,8 +34,8 @@ class Portfolio extends Application {
             $this->index();
         } else {
             $this->data['pagetitle'] = "Login";
-            $this->data['page'] = 'pages/login/login';
-            $this->data['pagecontent'] = 'pages/login/login';
+            $this->data['page'] = 'pages/login';
+            $this->data['pagecontent'] = 'pages/login';
             $this->render();
         }
     }

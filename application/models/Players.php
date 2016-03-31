@@ -24,6 +24,6 @@ class Players extends my_model2 {
      *  query database and retrieves player names
      */
     public function get_names() {
-        return $this->db->query('SELECT Player from players');
+        return $this->db->query('SELECT Name from players');
     }
 }

@@ -21,13 +21,7 @@ class Application extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-	
-	//Login
-	if($this->session->userdata('username')) {
-	    $this->data['login-menu'] = $this->parser->parse("pages/login/logout_menu", $this->data, true);	        
-   	} else {
-	    $this->data['login-menu'] = $this->parser->parse("pages/login/login_menu", $this->data, true);
-    	}
+        $this->data['pagetitle'] = '';
     }
 
     /**
@@ -35,8 +29,46 @@ class Application extends CI_Controller {
      * Used on all. We need to load data into content in the controller
      */
     function render() {
+        $mymenu = array('menudata' => $this->makemenu());
+
         $this->data['pagetitle'] = $this->data['pagetitle'];
+        $this->data['menubar'] = $this->parser->parse('menu', $mymenu, true); // this will load a menu bar into the page
         $this->data['pagecontent'] = $this->parser->parse($this->data['page'], $this->data, true);
+
+        // Testing session
+        //$this->data['user'] = $this->session->userdata['userName'];
+        //$this->data['role'] = $this->session->userdata['userRole'];
+        
         $this->parser->parse('template', $this->data);
+    }
+    function makemenu()
+    {
+        $choices = array();
+        $role = $this->session->userdata('userRole');
+        $name = $this->session->userdata('userName');
+        $choices[] = array('name' => 'Dashboard', 'link' => '/');
+        // Check if user
+        if($role != null && $name != null)
+        {
+            if($role ==  ROLE_ADMIN) // constant defined in config/constants
+            {
+                // Only admin controls
+            }
+            else
+            {
+                // Only user controls
+            }
+            $choices[] = array('name' => 'Player', 'link' => '/portfolio');
+            $choices[] = array('name' => 'History', 'link' => '/history');
+            $choices[] = array('name' => (string) $name, 
+                                 'link' => '/portfolio/detail/' . (string) $name);
+            $choices[] = array('name' => 'Logout', 'link' => '/auth/logout');
+        }
+        else
+        {
+           $choices[] = array('name' => 'Login', 'link' => '/auth'); 
+           $choices[] = array('name' => 'Register', 'link' => '/auth/signup');
+        }
+        return $choices;
     }
 }
