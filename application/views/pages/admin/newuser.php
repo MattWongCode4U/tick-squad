@@ -1,7 +1,7 @@
 <center>
 <form method="post" action="/auth/register">
     <fieldset>
-        <legend>Register</legend>
+        <legend>Register - Admin</legend>
         <label>Name</label>
         <input type="text" id="name" name="name" placeholder="Name" autofocus>
         <br/>
@@ -10,6 +10,12 @@
         <br/>
         <label>Password</label>
         <input type="password" id="password" name="password" placeholder="******">
+        <br/>
+        <label>Role</label>
+        <select id="role" name="role">
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+        </select>
         <br/>
         <button type="submit" class="btn btn-default">Submit</button>
     </fieldset>

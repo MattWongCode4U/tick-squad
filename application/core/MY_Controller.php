@@ -50,19 +50,21 @@ class Application extends CI_Controller {
         // Check if user
         if($role != null && $name != null)
         {
-            if($role ==  ROLE_ADMIN) // constant defined in config/constants
-            {
-                // Only admin controls
-            }
-            else
-            {
-                // Only user controls
-            }
             $choices[] = array('name' => 'Player', 'link' => '/portfolio');
             $choices[] = array('name' => 'History', 'link' => '/history');
             $choices[] = array('name' => (string) $name, 
                                  'link' => '/portfolio/detail/' . (string) $name);
             $choices[] = array('name' => 'Logout', 'link' => '/auth/logout');
+            if($role ==  ROLE_ADMIN) // constant defined in config/constants
+            {
+                // Only admin controls
+                $choices[] = array('name' => 'New User', 'link' => '/auth/newuser');
+            }
+            else
+            {
+                // Only user controls
+            }
+
         }
         else
         {

@@ -21,4 +21,8 @@ class Users extends MY_Model {
                      );
         $this->add($user);
     }
+    function findusers()
+    {
+       return $this->db->query('SELECT id from user'); 
+    }
 }

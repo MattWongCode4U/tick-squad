@@ -1,20 +1,11 @@
 #To Do Document
 ---
 ###List of things that need to be done
-- Fix user authentication
-    - Restrict repeat usernames
-    - Handle invalid logins
-    - Set user id's to lowercase
 - Setup state's for the game
 - Figure out DTD for the xml returned from the server
     - Are we supposed to be using jlparry server?
     - Retrieved at BSX/data/WHICH ??
     - use fgetcsv ??
-- Fix dashboard to show current users
-- Add user registration page
-    - they will be signed up as users
-    - make an admin account for jlp
-        - James jlparry adminpass admin
 - Responsible for monitoring the information given back to us from the server
     - stock splits
     - delistings
