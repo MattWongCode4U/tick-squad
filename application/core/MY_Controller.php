@@ -58,8 +58,7 @@ class Application extends CI_Controller {
                 // Only user controls
             }
             $choices[] = array('name' => (string) $name, 
-                                 'link' => '/portfolio/detail/' . (string) $name, 'img' => 'child');
-
+                                 'link' => '/user', 'img' => 'child');
             $choices[] = array('name' => 'Logout', 'link' => '/auth/logout', 'img' => 'sign-out');
         }
         else

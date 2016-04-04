@@ -51,4 +51,27 @@ class Users extends MY_Model {
         $this->db->where('id', $id);
         $this->db->update('user', $data);
     }
+    public function get_avatar($id)
+    {
+        $ext = './data/uploads/avatars/';
+        $png = $ext.$id.'.png';
+        $jpg = $ext.$id.'.jpg';
+        $gif = $ext.$id.'.gif';
+        if(is_file($png) != FALSE)
+        {
+            return $png;
+        }
+        else if(is_file($jpg) != FALSE)
+        {
+            return $jpg; 
+        }
+        else if(is_file($gif) != FALSE)
+        {
+            return $gif;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
