@@ -34,10 +34,6 @@ class Application extends CI_Controller {
         $this->data['pagetitle'] = $this->data['pagetitle'];
         $this->data['menubar'] = $this->parser->parse('menu', $mymenu, true); // this will load a menu bar into the page
         $this->data['pagecontent'] = $this->parser->parse($this->data['page'], $this->data, true);
-
-        // Testing session
-        //$this->data['user'] = $this->session->userdata['userName'];
-        //$this->data['role'] = $this->session->userdata['userRole'];
         
         $this->parser->parse('template', $this->data);
     }
@@ -46,30 +42,29 @@ class Application extends CI_Controller {
         $choices = array();
         $role = $this->session->userdata('userRole');
         $name = $this->session->userdata('userName');
-        $choices[] = array('name' => 'Dashboard', 'link' => '/');
+        $choices[] = array('name' => 'Dashboard', 'link' => '/', 'img' => 'home');
         // Check if user
         if($role != null && $name != null)
         {
-            $choices[] = array('name' => 'Player', 'link' => '/portfolio');
-            $choices[] = array('name' => 'History', 'link' => '/history');
-            $choices[] = array('name' => (string) $name, 
-                                 'link' => '/portfolio/detail/' . (string) $name);
-            $choices[] = array('name' => 'Logout', 'link' => '/auth/logout');
-            if($role ==  ROLE_ADMIN) // constant defined in config/constants
+            $choices[] = array('name' => 'Player', 'link' => '/player', 'img' => 'male');
+            $choices[] = array('name' => 'History', 'link' => '/history', 'img' => 'line-chart');
+                                    if($role ==  ROLE_ADMIN) // constant defined in config/constants
             {
                 // Only admin controls
-                $choices[] = array('name' => 'New User', 'link' => '/auth/newuser');
+                $choices[] = array('name' => 'Admin Console', 'link' => '/admin', 'img' => 'tachometer');
             }
             else
             {
                 // Only user controls
             }
-
+            $choices[] = array('name' => (string) $name, 
+                                 'link' => '/user', 'img' => 'child');
+            $choices[] = array('name' => 'Logout', 'link' => '/auth/logout', 'img' => 'sign-out');
         }
         else
         {
-           $choices[] = array('name' => 'Login', 'link' => '/auth'); 
-           $choices[] = array('name' => 'Register', 'link' => '/auth/signup');
+           $choices[] = array('name' => 'Login', 'link' => '/auth', 'img' => 'sign-in'); 
+           $choices[] = array('name' => 'Register', 'link' => '/auth/signup', 'img' => 'plus');
         }
         return $choices;
     }

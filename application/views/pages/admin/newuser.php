@@ -1,5 +1,5 @@
 <center>
-<form method="post" action="/auth/register">
+<form method="post" action="/auth/adminNewUser">
     <fieldset>
         <legend>Register - Admin</legend>
         <label>Name</label>

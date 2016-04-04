@@ -43,4 +43,10 @@ class Error extends Application {
         $this->data['page'] = 'errors/userid_error';
         $this->render();
     }
+    function wip()
+    {
+        $this->data['pagetitle'] = 'Work in progress';
+        $this->data['page'] = 'errors/wip';
+        $this->render();
+    }
 }

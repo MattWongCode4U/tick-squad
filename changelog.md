@@ -5,6 +5,7 @@ Newest at the top
 Change Log format
 	YYYY-MM-DD HH:mm {Comments}
 
+2016-04-04 09:58 Added admin console for admin accounts
 2016-03-31 16:39 Fixed login/logout/register for users to the database
 2016-02-14 21:39 Centered login inputs
 2016-02-14 21:35 Fixed login button spacing
