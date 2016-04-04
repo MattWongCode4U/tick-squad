@@ -1,0 +1,4 @@
+<center>
+    {searchbar}
+    {content}
+</center>

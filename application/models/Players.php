@@ -2,7 +2,7 @@
 /*
  * Data access wrapper for "players" table
  */
-class Players extends my_model2 {
+class Players extends MY_Model {
     public $player; //player
     public $cash;   //cash that the player has
 

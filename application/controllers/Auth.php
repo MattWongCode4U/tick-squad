@@ -62,9 +62,9 @@ class Auth extends Application {
         $id = strtolower($this->input->post('userid')); // Sets the string to lower
         // search the database for a user with the same id
         $dbuserid = $this->users->findusers();
-        foreach($dbuserid as $used)
+        foreach($dbuserid->result() as $used)
         {
-            if($used == $id)
+            if(strcmp((string) $used->id, (string) $id) == 0)
             {
                 redirect('/error/userid');
             }
@@ -88,6 +88,7 @@ class Auth extends Application {
         }
         else
         {
+            // A field was null
             redirect('/error/register'); // Redirects to registeration error
         }
     }
@@ -106,7 +107,7 @@ class Auth extends Application {
         $dbuserid = $this->users->findusers();
         foreach($dbuserid as $used)
         {
-            if($used == $id)
+            if(strcmp((string)$used, (string)$id) == 0)
             {
                 redirect('/error/userid');
             }
@@ -115,7 +116,7 @@ class Auth extends Application {
         $hashpass = password_hash($pass, PASSWORD_DEFAULT);
         $role = $this->input->post('role');
 
-        if($name != null && $id != null && $pass != null && role != null)
+        if($name != null && $id != null && $pass != null && $role != null)
         {
             $hashpass = password_hash($pass, PASSWORD_DEFAULT);
             if($hashpass == FALSE)
@@ -123,14 +124,10 @@ class Auth extends Application {
                 // Hash failed
                 redirect('/error/register'); // Redirects to a registration error
             }
-            else if($role == 'admin' || $role == 'user')
-            {
-                $this->users->insert($name, $id, $hashpass, $role);
-                redirect('/');
-            }
             else
             {
-                redirect('/error/register');
+                $this->users->insert($name, $id, $hashpass, $role);
+                redirect('/admin/edituser');
             }
         }
         else

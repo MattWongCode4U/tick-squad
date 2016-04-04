@@ -18,35 +18,8 @@ class Portfolio extends Application {
         if ($this->session->userdata('userName')) {
             $this->profile();
         } else {
-            $this->login();
+            redirect('/auth/');
         }
-    }
-    
-    /*
-        If there is an input int he field-username, then set the username of the session based to the username inserted and login
-        Else asks the user to login and opens the login page
-    */
-    public function login() {
-        if($this->input->post('field-username')) {
-            $nData = array('username' => $this->input->post('field-username'));
-            $this->session->set_userdata($nData);
-            $this->data['login-menu'] = $this->parser->parse("pages/login/logout_menu", $this->data, true);
-            $this->index();
-        } else {
-            $this->data['pagetitle'] = "Login";
-            $this->data['page'] = 'pages/login';
-            $this->data['pagecontent'] = 'pages/login';
-            $this->render();
-        }
-    }
-
-    /*
-        "Loggs the user out" (unsets the session) and opens the user login page
-    */
-    public function logout() {
-        $this->session->unset_userdata('username');
-        $this->data['login-menu'] = $this->parser->parse("pages/login/login_menu", $this->data, true);
-        $this->index();
     }
 
     /*
@@ -82,5 +55,4 @@ class Portfolio extends Application {
         }
         return $this->parser->parse('pages/portfolio/trading_table', array('rows' => $result), true);
     }
-
 }

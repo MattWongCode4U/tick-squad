@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Mar 31, 2016 at 04:46 PM
+-- Generation Time: Apr 04, 2016 at 01:01 AM
 -- Server version: 5.6.28
 -- PHP Version: 5.5.31
 
@@ -165,8 +165,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`name`, `id`, `password`, `role`) VALUES
-('Jay', 'jay', '$2y$10$COyb8GZ6cZ0BoKMJUWaxweBYC9xBIjcBM5tSyag6iIZyEYETf.kri', 'admin'),
+('Donald', 'donald', '$2y$10$GzjjdRRH7.OKzFdpInaL4uYgM0QB1sHk6BBkEbTH3ZsneHtgIKEFm', 'user'),
+('George', 'george', '$2y$10$bci6uGFg2wIoIMCZIJXJZ.oK7rTtfBos9VmnvRJnDGj8yA2NODz56', 'user'),
+('Henry', 'henry', '$2y$10$dWnfypOpSXWtw6rVW5ybf.pJf5t//yplQvyvH6rgIGWjTIzKmgzje', 'user'),
 ('Matt', 'matt', '$2y$10$2DY1Dn.EhKcabt.TgmsQoerHp6NM7LK6jlJ3ljSTDv.CNVHzRS91C', 'admin'),
+('Mickey', 'mickey', '$2y$10$84VWXM8sP5Cle2ZXlETiJ.s8jiVMBFbt9c5JbkRXoGSc36Vb5ccfq', 'user'),
 ('Spencer', 'spencer', '$2y$10$mk8UpRX8LEMtRXVWYcBLa.uQaZYJ//VlmgPUs42KXVqRld4TOSP8W', 'admin'),
 ('Tyler', 'tyler', '$2y$10$NTW7XCRzOoNrISbhJERxGedwryXHVLGE8TyT2baQSEMM3bYa0zYwu', 'admin');
 

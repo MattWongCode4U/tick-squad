@@ -26,13 +26,13 @@ class Home extends Application {
 	    foreach ($players->result() as $row) {
 		  $result .= $this->parser->parse('pages/home/player_row', (array) $row, true);
 	    }
-        $data['rows'] = $result;
+            $data['rows'] = $result;
 	    return $this->parser->parse('pages/home/players_table', $data, true);
 	}
 
 	public function stocks_panel() {
 	    $result = '';
-        $query = $this->stocks->get_stocks();
+            $query = $this->stocks->get_stocks();
  	    foreach ($query->result() as $row) {
 		  $result .= $this->parser->parse('pages/home/stock_row', (array) $row, true);
 	    }
