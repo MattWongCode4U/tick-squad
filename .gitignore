@@ -5,4 +5,6 @@
 !*/cache/index.html
 !*/cache/.htaccess
 /nbproject/private/
-/data/uploads/avatars/*
+/data/uploads/avatars/*.png
+/data/uploads/avatars/*.jpg 
+/data/uploads/avatars/*.gif 
