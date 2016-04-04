@@ -5,6 +5,8 @@ Newest at the top
 Change Log format
 	YYYY-MM-DD HH:mm {Comments}
 
+2016-04-04 15:52 Added comments to controllers/models
+2016-04-04 15:51 Added user avatar uploads
 2016-04-04 09:58 Added admin console for admin accounts
 2016-03-31 16:39 Fixed login/logout/register for users to the database
 2016-02-14 21:39 Centered login inputs

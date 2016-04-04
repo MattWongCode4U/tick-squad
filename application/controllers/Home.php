@@ -16,25 +16,28 @@ class Home extends Application {
             $this->data['players-panel'] = $this->players_panel();
             $this->data['stocks-panel'] = $this->stocks_panel();
             $this->data['page'] = 'pages/home/home';
-            //$this->data['content'] = 'pages/home/home';
             $this->render();
 	}
-	
+    /**
+     *  Set's up the players panel. This is for all the players currently in the game.
+     */	
 	public function players_panel() {
 	    $result = '';
 	    $players = $this->players->get_players();
 	    foreach ($players->result() as $row) {
 		  $result .= $this->parser->parse('pages/home/player_row', (array) $row, true);
 	    }
-            $data['rows'] = $result;
+        $data['rows'] = $result;
 	    return $this->parser->parse('pages/home/players_table', $data, true);
 	}
-
+    /**
+     *  This set's up the stock's panel.
+     */
 	public function stocks_panel() {
 	    $result = '';
-            $query = $this->stocks->get_stocks();
+        $query = $this->stocks->get_stocks();
  	    foreach ($query->result() as $row) {
-		  $result .= $this->parser->parse('pages/home/stock_row', (array) $row, true);
+	        $result .= $this->parser->parse('pages/home/stock_row', (array) $row, true);
 	    }
 	    $data['rows'] = $result;
 	    return $this->parser->parse('pages/home/stocks_table', $data, true);
