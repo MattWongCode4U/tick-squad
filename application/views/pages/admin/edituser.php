@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-md-12">
 <form action="/admin/update/{id}" method="post">
     <label>Name</label>
     <input type="text" name="name" value="{name}"></input>
@@ -13,3 +15,5 @@
     <br/>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
+</div>
+</div>
