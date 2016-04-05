@@ -28,6 +28,13 @@ class Game extends Application {
     }
     function loadscripts()
     {
-        return $this->parser->parse('pages/game/scripts', array(), true);
+        $query = $this->stocks->get_stocks();
+        $stockinfo['stockname'] = '';
+        $stockinfo['stockvalue'] = '';
+        foreach ($query->result() as $info) {
+	        $stockinfo['stockname'] .= '"' . (string) $info->Name . '", ';
+            $stockinfo['stockvalue'] .= (string) $info->Value . ', ';
+	    }
+        return $this->parser->parse('pages/game/scripts', $stockinfo, true);
     }
 }

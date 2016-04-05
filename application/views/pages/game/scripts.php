@@ -3,7 +3,7 @@
 var ctx = document.getElementById("myChart");
 var data = {
     // This needs to be changed and loaded in
-    labels: ["BOND", "GOLD", "GRAN", "IND", "OIL", "TECH"],
+    labels: [{stockname}],
 	datasets: [{
 			label: "Stocks",
 
@@ -25,7 +25,7 @@ var data = {
 
 			// The actual data
             // this needs to be loaded in
-			data: [66, 110, 113, 39, 52, 37],
+			data: [{stockvalue}],
 
 			// String - If specified, binds the dataset to a certain y-axis. If not specified, the first y-axis is used.
 			yAxisID: "y-axis-0",
