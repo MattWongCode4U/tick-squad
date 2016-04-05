@@ -1,4 +1,4 @@
-<script src="/assets/js/chart.js"></script>
+<script src="/assets/js/Chart.js"></script>
 <script>
 var ctx = document.getElementById("myChart");
 var data = {
