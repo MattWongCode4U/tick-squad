@@ -12,7 +12,7 @@
 - Gameplay page
     - restricted to the user
         - do the funny dashboard bar that jlparry did
-    - maybe javascript/ajax to update periodically
+    - use chart.js for the chart
 - Save player & game data
     - game data reset with each round
 - Fix history controller html generation

@@ -46,7 +46,7 @@ class Application extends CI_Controller {
         // Check if user
         if($role != null && $name != null)
         {
-            $choices[] = array('name' => 'Game', 'link' => '/error/wip', 'img' => 'gamepad');
+            $choices[] = array('name' => 'Game', 'link' => '/game', 'img' => 'gamepad');
             $choices[] = array('name' => 'Player', 'link' => '/player', 'img' => 'male');
             $choices[] = array('name' => 'History', 'link' => '/history', 'img' => 'line-chart');
             if($role ==  ROLE_ADMIN) // constant defined in config/constants
