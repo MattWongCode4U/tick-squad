@@ -18,6 +18,16 @@ class Game extends Application {
     {
         $this->data['pagetitle'] = 'Game';
         $this->data['page'] = 'pages/game/game';
+        $this->data['chart'] = $this->generategame();
+        $this->data['scripts'] = $this->loadscripts();
         $this->render();
+    }
+    function generategame()
+    {
+        return $this->parser->parse('pages/game/chart', array(), true);
+    }
+    function loadscripts()
+    {
+        return $this->parser->parse('pages/game/scripts', array(), true);
     }
 }
