@@ -12,13 +12,7 @@
 - Gameplay page
     - restricted to the user
         - do the funny dashboard bar that jlparry did
-    - maybe javascript/ajax to update periodically
+    - use chart.js for the chart
 - Save player & game data
     - game data reset with each round
-- Player avatars
-    - look into gravitar?
-    - otherwise just assign avatars upon creation of the account
-    - handle file uploading
-    - scale the files down to 64x64
-
 - Fix history controller html generation

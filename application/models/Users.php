@@ -7,6 +7,9 @@
   */
 
 class Users extends MY_Model {
+    /**
+     *  Variables (columns) in the database.
+     */
     public $name;
     public $id;
     public $role;
@@ -16,6 +19,9 @@ class Users extends MY_Model {
         // Call the Model constructor
         parent::__construct('user', 'id');
     }
+    /**
+     *  Inserts a new user into the database.
+     */
     public function insert($name, $id, $pass, $role)
     {
         $user = array('name' => $name,
@@ -25,23 +31,38 @@ class Users extends MY_Model {
                      );
         $this->add($user);
     }
+    /**
+     *  Returns a query of all the users by id.
+     */
     public function findusers()
     {
        return $this->db->query('SELECT id from user'); 
     }
+    /**
+     *  Returns a query of all the users in the database.
+     */
     public function get_users()
     {
         return $this->db->query('SELECT * from user');
     }
+    /**
+     *  Returns a query of a search by the user's id passed in.
+     */
     public function searchuserid($id)
     {
         return $this->db->query('SELECT * from user WHERE id = \'' . $id . '\'');
     }
+    /**
+     *  Removes the user with the id passed in.
+     */
     public function removeuser($id)
     {
         $this->db->where('id', $id);
         $this->db->delete('user');
     }
+    /**
+     *  Edit's the user with the id passed in, and updates name/role.
+     */
     public function edit($name, $id, $role)
     {
         $data = array(
@@ -51,6 +72,9 @@ class Users extends MY_Model {
         $this->db->where('id', $id);
         $this->db->update('user', $data);
     }
+    /**
+     *  Get's the user's avatar based on the id passed in from the uploads folder.
+     */
     public function get_avatar($id)
     {
         $ext = './data/uploads/avatars/';

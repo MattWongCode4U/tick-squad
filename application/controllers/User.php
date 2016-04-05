@@ -7,12 +7,19 @@
   */
 
 class User extends Application {
+    /**
+     *  Called when the class is created.
+     */
     function __construct()
     {
         // Call the Controller constructor
         parent::__construct();
         $this->load->helper('url');
     }
+    /**
+     *  Called when directed to '/user'.
+     *  Loads the user's profile page.
+     */
     function index()
     {
         $this->data['pagetitle'] = 'User Settings';
@@ -20,10 +27,17 @@ class User extends Application {
         $this->data['content'] = $this->userimg();
         $this->render();
     }
+    /**
+     *  Called when uploading an avatar for the user.
+     *  Redirects to the uploads controller.
+     */
     function upload()
     {
         redirect('/upload');
     }
+    /**
+     *  Loads the user image into the user's settings page.
+     */
     function userimg()
     {
         $id = $this->session->userdata('userID');

@@ -2,17 +2,25 @@
 
 /** 
   * Upload Controller class
+  * 
+  * Upload user avatar pictures.
   *
   * Created by Spencer 04/04/2016 11:52:50 am PDT
   */
 
 class Upload extends Application {
+    /**
+     *  Called when the class is created.
+     */
     function __construct()
     {
         // Call the Controller constructor
         parent::__construct();
         $this->load->helper(array('form', 'url', 'file'));
     }
+    /**
+     *  Called when directed to '/upload'.
+     */
     function index()
     {
         $this->data['pagetitle'] = 'Upload Form';
@@ -20,29 +28,26 @@ class Upload extends Application {
         $this->data['error'] = '';
         $this->render();
     }
+    /**
+     *  Called when uploading a file.
+     */
     function do_upload()
     {
         $this->data['pagetitle'] = 'Uploading...';
-
         $newname = $this->session->userdata('userID');
-
         $upconfig['upload_path'] = './data/uploads/avatars';
         $upconfig['allowed_types'] = 'gif|jpg|png';
         $upconfig['max_size'] = 2048;
         $upconfig['max_width'] = 1920;
         $upconfig['max_height'] = 1080;
         $upconfig['overwrite'] = TRUE;
-
         $upconfig['file_name'] = $newname;
-
         $this->load->library('upload', $upconfig);
-        
         $file = $this->users->get_avatar($this->session->userdata('userID'));
         if($file != NULL)
         {
             unlink($file);
         }
-
         if (! $this->upload->do_upload('userfile'))
         {
             $this->data['page'] = 'pages/upload/upload_form';
@@ -61,7 +66,6 @@ class Upload extends Application {
             $config2['height'] = 60;
             $this->load->library('image_lib',$config2);
             $this->image_lib->resize();
-
             $this->data['page'] = 'pages/upload/upload_success';
             $this->render();
         }
