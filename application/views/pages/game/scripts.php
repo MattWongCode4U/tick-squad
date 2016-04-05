@@ -33,6 +33,9 @@ var data = {
 };
 var options = {
     responsive: false, // response to the browser being changed
+    legend: {
+        display: false
+    },
     scales: {
         xAxes: [{
             stacked: true,
@@ -51,4 +54,12 @@ var myChart = new Chart(ctx, {
 		data: data,
 		options: options
 });
+setInterval(update, 8000);
+
+function update()
+{
+    for(i = 0; i < 6; i++)
+        myChart.data.datasets[0].data[i] = Math.random() * (201 - -200) +  -200;
+    myChart.update();
+}
 </script>
