@@ -12,7 +12,12 @@ body
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 11pt;
 	font-weight: 300;
-	color: #ffffff
+	color: #ffffff;
+}
+
+body form input
+{
+    color: #000000;
 }
 
 h1, h2, h3
@@ -382,14 +387,13 @@ ul.contact li a.icon-rss:before
 
 #logo
 {
-	position: absolute;
+	position: relative;
 	top: 2em;
 	width: 100%;
 }
 
 #logo h1
 {
-	display: inline-block;
 	font-size: 2.5em;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -420,7 +424,7 @@ ul.contact li a.icon-rss:before
 
 #logo .fa:after
 {
-	position: absolute;
+	position: relative;
 	display: inline-block;
 	padding-right: 2em;
 }
@@ -431,7 +435,7 @@ ul.contact li a.icon-rss:before
 
 #menu
 {
-	position: absolute;
+	position: relative;
 	right: 0;
 	top: 1.6em;
 }

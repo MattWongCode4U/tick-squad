@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col-md-12">
 <center>
 <form method="post" action="/auth/adminNewUser">
     <fieldset>
@@ -21,3 +23,5 @@
     </fieldset>
 </form>
 </center>
+</div>
+</div>

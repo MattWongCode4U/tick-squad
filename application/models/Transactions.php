@@ -15,7 +15,7 @@ class Transactions extends my_model2 {
      *  query database and retrieve transactions table from newest to oldest order
      */
     function get_transactions() {
-        return $this->db->query('SELECT * FROM transaction ORDER BY Datetime DESC');
+        return $this->db->query('SELECT * FROM transactions ORDER BY DateTime DESC');
     }
 
     /*
@@ -24,6 +24,11 @@ class Transactions extends my_model2 {
     function details($i) {
         return $this->some("Stock", $i);
     }
+
+    function get_trans($code)
+    {
+        return $this->db->query('SELECT * FROM transactions WHERE `Stock` LIKE "' . $code . '" ORDER BY DateTime DESC');
+    } 
 
     /*
      *  query database and retrieve a transaction of a player
