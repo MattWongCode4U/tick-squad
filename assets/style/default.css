@@ -442,7 +442,7 @@ ul.contact li a.icon-rss:before
 
 #menu ul
 {
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
 #menu li
@@ -454,7 +454,7 @@ ul.contact li a.icon-rss:before
 
 #menu li a, #menu li span
 {
-	display: inline-block;
+	/*display: inline-block;*/
 	margin-left: 1px;
 	padding: 1em 1.5em 1em 1.5em;
 	letter-spacing: 0.10em;
