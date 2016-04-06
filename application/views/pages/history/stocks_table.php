@@ -1,9 +1,10 @@
 <div class="col-md-12">
-<h2>Players</h2>
 <table class="table table-bordered">
     <tr>
-	<th>User's Name</th>
-	<th>User's ID</th>
+    <th>Stock</th>
+	<th>Buy/Sell</th>
+	<th>Amount of Stocks</th>
+    <th>Date/Time</th>
     </tr>
     {rows}
 </table>

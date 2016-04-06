@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class History extends Application {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+    }
 
     /*
         Initially called on the controller name being passed in
@@ -13,60 +18,54 @@ class History extends Application {
     */
     public function index() {
         $this->data['pagetitle'] = ucfirst('history'); // Capitalize the first letter
-        $this->load->helper('url');
-        //default value of dropdown selection
-	    $value = $this->input->post("DropDownBox");
-	    if (is_null($value)){
-            redirect('/history/stock/BOND');
-        } else {
-	       redirect('/history/stock/'.$value);
-        }
-        //get value from dropdown
-        $currentStock = $value;
-        //get from the transactions table, 
-        //all info that have Stock = thing from dropdown
-        $trans = $this->transactions->details($currentStock);
-        $transactions = array();
-        $tblData = '';
-        foreach ($trans as $info) {
-            $date = $info->DateTime;
-            $player = $info->Player;
-            $stock = $info->Stock;
-            $trans = $info->Trans;
-            $quantity = $info->Quantity;
-            $tblData .= '<tr>';
-            $tblData .= '<td>'.$trans.'</td>';
-            $tblData .= '<td>'.$quantity.'</td>';
-            $tblData .= '<td>'.$date.'</td>';
-            $tblData .= '</tr>';
-        }
-        // load the page content into data['content']
-        $this->data['page'] = 'pages/history';
-        $this->data['content'] = $tblData;
+        $this->data['page'] = 'pages/history/history';
+        $this->data['searchbar'] = $this->populatesearchbar();
+        $this->data['content'] = $this->getall();
         $this->render();
+    }
+
+    public function populatesearchbar()
+    {
+        $result ='';
+        $stocks = $this->stocks->get_stocks();
+        foreach ($stocks->result() as $stock)
+        {
+            $result .= $this->parser->parse('pages/history/searchoption',
+                (array) $stock, true);
+        }
+        $data['selectdata'] = $result;
+        $data['searchby'] = 'Stock';
+        return $this->parser->parse('pages/history/select', $data, true);
+    }
+
+    public function getall()
+    {
+        $result = '';
+        $stocks = $this->transactions->get_transactions();
+        foreach ($stocks->result() as $stock)
+        {
+            $result .= $this->parser->parse('pages/history/stock_row',
+                (array) $stock, true);
+        }
+        $data['rows'] = $result;
+        return $this->parser->parse('pages/history/stocks_table', $data, true);
     }
 
     /*
         Calls the stock function when history/stock/GOLD is in the URL and passes in GOLD to the defautl index function
     */
-    public function stock($stock) {
+    public function stock() {
         $this->data['pagetitle'] = ucfirst('history'); // Capitalize the first letter
-        $trans = $this->transactions->details($stock);
-        $tblData = '';
-        foreach ($trans as $info) {
-            $date = $info->DateTime;
-            $player = $info->Stock;
-            $stock = $info->Stock;
-            $trans = $info->Trans;
-            $quantity = $info->Quantity;
-            $tblData .= '<tr>';
-            $tblData .= '<td>'.$trans.'</td>';
-            $tblData .= '<td>'.$quantity.'</td>';
-            $tblData .= '<td>'.$date.'</td>';
-            $tblData .= '</tr>';
+        $result = '';
+        $trans = $this->transactions->get_trans($this->input->post('search'));
+        foreach ($trans->result() as $info)
+        {
+            $result .= $this->parser->parse('/pages/history/stock_row', (array) $info, true);
         }
-        $this->data['page'] = 'pages/history';
-        $this->data['content'] = $tblData;
+        $data['rows'] = $result;
+        $this->data['page'] = 'pages/history/history';
+        $this->data['searchbar'] = $this->populatesearchbar();
+        $this->data['content'] = $this->parser->parse('pages/history/stocks_table', $data, true);
         $this->render();
     }
 }

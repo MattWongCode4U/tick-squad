@@ -1,7 +1,7 @@
+<div class="row">
+<div class="col-md-12">
 <center>
 <form method="post" action="/auth/register">
-    <fieldset>
-        <legend>Register</legend>
         <label>Name</label>
         <input type="text" id="name" name="name" placeholder="Name" autofocus>
         <br/>
@@ -12,6 +12,7 @@
         <input type="password" id="password" name="password" placeholder="******">
         <br/>
         <button type="submit" class="btn btn-default">Submit</button>
-    </fieldset>
 </form>
 </center>
+</div>
+</div>

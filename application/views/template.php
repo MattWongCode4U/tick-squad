@@ -16,32 +16,32 @@ Released   : 20131220
         <title>Classic Ticker - {pagetitle}</title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
         <link href="/assets/style/default.css" rel="stylesheet" type="text/css" media="all" />
         <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-        <!--<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />-->
 
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
     </head>
     <body>
-        <div id="header-wrapper">
-            <div id="header" class="container">
+        <div id="header-wrapper" class="row">
+            <div id="header" class="col-md-3">
                 <div id="logo">
                     <h1><i class="fa fa-gamepad"></i><a href="/">Classic Ticker</a></h1>
                 </div>
             </div>
-        </div>
-        <div id="header-wrapper">
-            <div id="header" class="container">
-                <div id="menu">
+            <div class="col-md-4"></div>
+                <div id="menu" class="col-md-9">
                     {menubar}
                 </div>
             </div>
         </div>
         {pagecontent}
-        <div id="copyright" class="container">
-            <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+        <div id="copyright" class="row">
+            <div class="col-md-12">
+                <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+            </div>
         </div>
     </body>
 </html>
