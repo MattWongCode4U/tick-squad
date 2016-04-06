@@ -12,7 +12,12 @@ body
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 11pt;
 	font-weight: 300;
-	color: #ffffff
+	color: #ffffff;
+}
+
+body form input
+{
+    color: #000000;
 }
 
 h1, h2, h3

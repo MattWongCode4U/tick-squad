@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT bsx(round, state, countdown, desc)>
+    <!ELEMENT round (#PCDATA)>
+    <!ELEMENT state (#PCDATA)>
+    <!ELEMENT countdown (#PCDATA)>
+    <!ELEMENT desc (#PCDATA)>
