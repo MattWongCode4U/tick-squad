@@ -5,6 +5,7 @@ Newest at the top
 Change Log format
 	YYYY-MM-DD HH:mm {Comments}
 
+2016-04-16 19:16 Added buy/sell menu on game page
 2016-04-04 23:21 Added graph to game page
 2016-04-04 15:52 Added comments to controllers/models
 2016-04-04 15:51 Added user avatar uploads

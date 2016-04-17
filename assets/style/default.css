@@ -378,7 +378,6 @@ ul.contact li a.icon-rss:before
 #header
 {
 	position: relative;
-	height: 100px;
 }
 
 /*********************************************************************************/
@@ -388,8 +387,6 @@ ul.contact li a.icon-rss:before
 #logo
 {
 	position: relative;
-	top: 2em;
-	width: 100%;
 }
 
 #logo h1
@@ -436,8 +433,6 @@ ul.contact li a.icon-rss:before
 #menu
 {
 	position: relative;
-	right: 0;
-	top: 1.6em;
 }
 
 #menu ul
@@ -447,8 +442,6 @@ ul.contact li a.icon-rss:before
 
 #menu li
 {
-	display: block;
-	float: left;
 	text-align: center;
 }
 
@@ -665,7 +658,8 @@ ul.contact li a.icon-rss:before
 	font-size: 2em;
 }
 
-#featured-wrapper .fa
+
+/*#featured-wrapper .fa
 {
 	display: inline-block;
 	margin-bottom: 1em;
@@ -677,7 +671,7 @@ ul.contact li a.icon-rss:before
 	background: #F2762E;
 	border: 1px solid #F2762E;
 	border-radius: 50%;
-}
+}*/
 
 .column1,  .column2,  .column3,  .column4
 {
@@ -946,4 +940,14 @@ ul.contact li a.icon-rss:before
 .extra2 .ebox2
 {
 	float: right;
+}
+
+/*Fixed stupid css shit*/
+
+form select {
+	color: #000000;
+}
+
+.navbar {
+	color: #ff9900;
 }

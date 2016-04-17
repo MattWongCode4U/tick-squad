@@ -47,4 +47,8 @@ class User extends Application {
         }
         return $this->parser->parse('pages/user/img', $user, true);
     }
+    function buysell()
+    {
+        redirect('/error/wip');
+    }
 }
