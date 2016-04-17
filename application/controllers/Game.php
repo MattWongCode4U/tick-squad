@@ -18,9 +18,28 @@ class Game extends Application {
     {
         $this->data['pagetitle'] = 'Game';
         $this->data['page'] = 'pages/game/game';
+        $this->data['sidebar'] = $this->loadSidebar();
         $this->data['chart'] = $this->generategame();
         $this->data['scripts'] = $this->loadscripts();
         $this->render();
+    }
+    function loadSidebar()
+    {
+        // Get stocks
+        $stuff = array();
+        $stuff['selectdata'] = $this->populateSearchBar();
+        return $this->parser->parse('pages/game/sidebar', $stuff, true);
+    }
+    function populateSearchBar()
+    {
+        $result ='';
+        $stocks = $this->stocks->get_stocks();
+        foreach ($stocks->result() as $stock)
+        {
+            $result .= $this->parser->parse('pages/history/searchoption',
+                (array) $stock, true);
+        }
+        return $result;
     }
     function generategame()
     {
