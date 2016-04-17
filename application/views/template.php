@@ -25,18 +25,27 @@ Released   : 20131220
 
     </head>
     <body>
-        <div id="header-wrapper" class="row">
-            <div id="header" class="col-md-3">
-                <div id="logo">
-                    <h1><i class="fa fa-gamepad"></i><a href="/">Classic Ticker</a></h1>
+       
+        <!-- Static navbar -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Classic Ticker</a>
                 </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {menubar}
+                    </ul>
+                </div><!--/.nav-collapse -->
             </div>
-            <div class="col-md-4"></div>
-                <div id="menu" class="col-md-9">
-                    {menubar}
-                </div>
-            </div>
-        </div>
+        </nav>
+        
         {pagecontent}
         <div id="copyright" class="row">
             <div class="col-md-12">
