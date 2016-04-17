@@ -2,20 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class History extends Application {
+    /**
+     * History constructor
+     */
     public function __construct()
     {
         parent::__construct();
         $this->load->helper('url');
     }
 
-    /*
-        Initially called on the controller name being passed in
-        
-        Loads in the title of the page
-        Sets up the dropdown menu for a selection of the stock's history
-        Gets all the transactions from the currently specified stock
-        Loads in table rows for the stock. * Will be fixed properly later
-    */
+    /**
+     * Initially called on the controller name being passed in
+     * 
+     * Loads in the title of the page
+     * Sets up the dropdown menu for a selection of the stock's history
+     * Gets all the transactions from the currently specified stock
+     * Loads in table rows for the stock. * Will be fixed properly later
+     */
     public function index() {
         $this->data['pagetitle'] = ucfirst('history'); // Capitalize the first letter
         $this->data['page'] = 'pages/history/history';
@@ -24,6 +27,9 @@ class History extends Application {
         $this->render();
     }
 
+    /**
+     * Populate search bar
+     */
     public function populatesearchbar()
     {
         $result ='';
@@ -37,7 +43,10 @@ class History extends Application {
         $data['searchby'] = 'Stock';
         return $this->parser->parse('pages/history/select', $data, true);
     }
-
+    
+    /**
+     * Retrieve history of all stocks
+     */
     public function getall()
     {
         $result = '';
@@ -51,9 +60,10 @@ class History extends Application {
         return $this->parser->parse('pages/history/stocks_table', $data, true);
     }
 
-    /*
-        Calls the stock function when history/stock/GOLD is in the URL and passes in GOLD to the defautl index function
-    */
+    /**
+     * Calls the stock function when history/stock/GOLD is in the URL and 
+     * passes in GOLD to the defautl index function
+     */
     public function stock() {
         $this->data['pagetitle'] = ucfirst('history'); // Capitalize the first letter
         $result = '';

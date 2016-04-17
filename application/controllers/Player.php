@@ -2,26 +2,26 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Player extends Application {
-        /*
-            Default constructor for the class
-        */
-        public function __construct() {
-            parent::__construct();
-            $this->load->helper('url');
-        }
-	/*
-        Initially called on the controller name being passed in
-        
-        Loads in the title of the page
-        Set's up the players content based on the user name
-	*/
-	public function index(){
-            $this->data['pagetitle'] = 'Player';
-            $this->data['page'] = 'pages/player/player';
-            $this->data['searchbar'] = $this->populatesearchbar();
-            $this->data['content'] = $this->getall();
-            $this->render();
-	}
+    /**
+     * Default constructor for the class
+     */
+    public function __construct() {
+        parent::__construct();
+        $this->load->helper('url');
+    }
+    /**
+     * Initially called on the controller name being passed in
+     * 
+     * Loads in the title of the page
+     * Set's up the players content based on the user name
+     */
+    public function index(){
+        $this->data['pagetitle'] = 'Player';
+        $this->data['page'] = 'pages/player/player';
+        $this->data['searchbar'] = $this->populatesearchbar();
+        $this->data['content'] = $this->getall();
+        $this->render();
+    }
     /**
      *  Gets all the users in the database and returns them in an html table.
      */
