@@ -9,11 +9,18 @@
   */
 
 class Game extends Application {
+    /**
+     * Game constructor
+     */
     function __construct()
     {
         // Call the Controller constructor
         parent::__construct();
     }
+    
+    /**
+     * Loads the game
+     */
     function index()
     {
         $this->data['pagetitle'] = 'Game';
@@ -23,6 +30,10 @@ class Game extends Application {
         $this->data['scripts'] = $this->loadscripts();
         $this->render();
     }
+    
+    /**
+     * Load the game's sidebar
+     */
     function loadSidebar()
     {
         // Get stocks
@@ -30,6 +41,10 @@ class Game extends Application {
         $stuff['selectdata'] = $this->populateSearchBar();
         return $this->parser->parse('pages/game/sidebar', $stuff, true);
     }
+    
+    /**
+     * Populate search bar
+     */
     function populateSearchBar()
     {
         $result ='';
@@ -41,10 +56,18 @@ class Game extends Application {
         }
         return $result;
     }
+    
+    /**
+     * Generates the game
+     */
     function generategame()
     {
         return $this->parser->parse('pages/game/chart', array(), true);
     }
+    
+    /**
+     * Load scripts
+     */
     function loadscripts()
     {
         $query = $this->stocks->get_stocks();
